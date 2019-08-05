@@ -1154,8 +1154,9 @@ void Gui::Draw(/*bool draw_layers, bool draw_dialogs*/)
 
 	wnd_size = app::engine->GetWindowSize();
 
-	if(!draw_layers && !draw_dialogs)
-		return;
+	//if(!draw_layers && !draw_dialogs)
+	//	return;
+	FIXME;
 
 	app::render->SetAlphaTest(false);
 	app::render->SetAlphaBlend(true);

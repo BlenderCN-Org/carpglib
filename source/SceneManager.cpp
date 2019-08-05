@@ -3,17 +3,23 @@
 #include "SceneManager.h"
 #include "Scene.h"
 #include "Render.h"
+#include "SuperShader.h"
 #include "DirectX.h"
 
 SceneManager* app::scene_mgr;
 
-SceneManager::SceneManager() : camera(nullptr), active_scene(nullptr)
+SceneManager::SceneManager() : shader(nullptr), camera(nullptr), active_scene(nullptr), use_fog(true)
 {
 }
 
 SceneManager::~SceneManager()
 {
 	DeleteElements(scenes);
+}
+
+void SceneManager::Init()
+{
+	shader = new SuperShader;
 }
 
 void SceneManager::Draw()
@@ -26,6 +32,8 @@ void SceneManager::Draw()
 		return;
 	}
 
+	Scene* scene = active_scene;
+
 	visible_nodes.clear();
 	scene->ListNodes(*camera, visible_nodes);
 
@@ -35,6 +43,12 @@ void SceneManager::Draw()
 		return;
 
 	V(device->BeginScene());
+
+	shader->SetAmbientColor(scene->ambient_color);
+	if(!use_fog || !scene->use_fog)
+		shader->SetFogDisabled();
+	else
+		shader->SetFog(scene->fog_color, scene->fog_range);
 
 	V(device->EndScene());
 }

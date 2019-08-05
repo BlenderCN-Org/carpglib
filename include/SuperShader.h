@@ -24,7 +24,7 @@ class SuperShader : public ShaderHandler
 	};
 
 public:
-	SuperShader(Render* render);
+	SuperShader();
 	~SuperShader();
 	void OnInit() override;
 	void OnReset() override;
@@ -35,11 +35,14 @@ public:
 	ID3DXEffect* CompileShader(uint id);
 	ID3DXEffect* GetEffect() const { return shaders.front().e; }
 
+	void SetAmbientColor(Color color);
+	void SetFog(Color color, const Vec2& range);
+	void SetFogDisabled();
+
 	D3DXHANDLE hMatCombined, hMatWorld, hMatBones, hTint, hAmbientColor, hFogColor, hFogParams, hLightDir, hLightColor, hLights, hSpecularColor,
 		hSpecularIntensity, hSpecularHardness, hCameraPos, hTexDiffuse, hTexNormal, hTexSpecular;
 
 private:
-	Render* render;
 	string code;
 	FileTime edit_time;
 	ID3DXEffectPool* pool;
