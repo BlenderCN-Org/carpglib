@@ -40,7 +40,10 @@ public:
 	void Init();
 	bool Reset(bool force);
 	void WaitReset();
-	void Draw(bool call_present = true);
+	bool CanDraw();
+	void Present();
+	//void Draw(bool call_present = true);
+	FIXME;
 	bool CheckDisplay(const Int2& size, int& hz); // dla zera zwraca najlepszy hz
 	void RegisterShader(ShaderHandler* shader);
 	ID3DXEffect* CompileShader(cstring name);

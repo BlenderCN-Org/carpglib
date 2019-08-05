@@ -16,7 +16,7 @@ public:
 	void OnReset() override;
 	void OnReload() override;
 	void OnRelease() override;
-	void SetCamera(const CameraBase& camera);
+	void SetCamera(const Camera& camera);
 	void Draw();
 	void BeginBatch();
 	void AddQuad(const Vec3(&pts)[4], const Vec4& color);

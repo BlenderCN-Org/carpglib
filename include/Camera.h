@@ -1,7 +1,7 @@
 #pragma once
 
 //-----------------------------------------------------------------------------
-struct CameraBase
+struct Camera
 {
 	Matrix matViewProj;
 };

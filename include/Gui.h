@@ -130,7 +130,8 @@ public:
 	void OnRelease() override;
 	bool IsManual() override { return true; }
 	void SetText(cstring ok, cstring yes, cstring no, cstring cancel);
-	void Draw(bool draw_layers, bool draw_dialogs);
+	void Draw(/*bool draw_layers, bool draw_dialogs*/);
+	FIXME;
 	bool AddFont(cstring filename);
 	Font* CreateFont(cstring name, int size, int weight, int tex_size, int outline = 0);
 	/* zaawansowane renderowanie tekstu (w porównaniu do ID3DXFont)

@@ -7,7 +7,6 @@ public:
 	virtual ~App() {}
 	virtual bool OnInit() { return true; }
 	virtual void OnCleanup() {}
-	virtual void OnDraw() {}
 	virtual void OnReload() {}
 	virtual void OnReset() {}
 	virtual void OnResize() {}

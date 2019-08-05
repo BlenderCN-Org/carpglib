@@ -13,7 +13,7 @@ public:
 	void OnReset() override;
 	void OnReload() override;
 	void OnRelease() override;
-	void SetCamera(const CameraBase& camera);
+	void SetCamera(const Camera& camera);
 	void SetFog(const Vec4& fog_color, const Vec4& fog_params);
 	void SetLight(const Vec4& light_dir, const Vec4& diffuse_color, const Vec4& ambient_color);
 	void Draw(Terrain* terrain, const vector<uint>& parts);

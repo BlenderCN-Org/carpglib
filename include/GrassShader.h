@@ -14,7 +14,7 @@ public:
 	void OnReload() override;
 	void OnRelease() override;
 	void SetFog(const Vec4& color, const Vec4& params);
-	void SetCamera(const CameraBase& camera);
+	void SetCamera(const Camera& camera);
 	void Begin(uint max_size);
 	void Draw(Mesh* mesh, const vector<const vector<Matrix>*>& patches, uint count);
 	void End();

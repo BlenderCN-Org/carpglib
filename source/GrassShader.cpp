@@ -3,7 +3,7 @@
 #include "GrassShader.h"
 #include "Render.h"
 #include "Mesh.h"
-#include "CameraBase.h"
+#include "Camera.h"
 #include "DirectX.h"
 
 //=================================================================================================
@@ -77,7 +77,7 @@ void GrassShader::SetFog(const Vec4& color, const Vec4& params)
 }
 
 //=================================================================================================
-void GrassShader::SetCamera(const CameraBase& camera)
+void GrassShader::SetCamera(const Camera& camera)
 {
 	mat_view_proj = camera.matViewProj;
 }

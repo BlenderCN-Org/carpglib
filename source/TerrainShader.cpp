@@ -2,7 +2,7 @@
 #include "EngineCore.h"
 #include "TerrainShader.h"
 #include "Terrain.h"
-#include "CameraBase.h"
+#include "Camera.h"
 #include "Texture.h"
 #include "Render.h"
 #include "DirectX.h"
@@ -74,7 +74,7 @@ void TerrainShader::OnRelease()
 }
 
 //=================================================================================================
-void TerrainShader::SetCamera(const CameraBase& camera)
+void TerrainShader::SetCamera(const Camera& camera)
 {
 	mat_view_proj = camera.matViewProj;
 }

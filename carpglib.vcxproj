@@ -23,7 +23,7 @@
     <ClInclude Include="include\App.h" />
     <ClInclude Include="include\Base64.h" />
     <ClInclude Include="include\Button.h" />
-    <ClInclude Include="include\CameraBase.h" />
+    <ClInclude Include="include\Camera.h" />
     <ClInclude Include="include\CheckBox.h" />
     <ClInclude Include="include\CheckBoxGroup.h" />
     <ClInclude Include="include\Color.h" />
@@ -85,6 +85,9 @@
     <ClInclude Include="include\RenderTarget.h" />
     <ClInclude Include="include\Resource.h" />
     <ClInclude Include="include\ResourceManager.h" />
+    <ClInclude Include="include\Scene.h" />
+    <ClInclude Include="include\SceneManager.h" />
+    <ClInclude Include="include\SceneNode.h" />
     <ClInclude Include="include\Scrollbar.h" />
     <ClInclude Include="include\ShaderHandler.h" />
     <ClInclude Include="include\Slider.h" />
@@ -168,6 +171,9 @@
     <ClCompile Include="source\RenderTarget.cpp" />
     <ClCompile Include="source\Resource.cpp" />
     <ClCompile Include="source\ResourceManager.cpp" />
+    <ClCompile Include="source\Scene.cpp" />
+    <ClCompile Include="source\SceneManager.cpp" />
+    <ClCompile Include="source\SceneNode.cpp" />
     <ClCompile Include="source\Scrollbar.cpp" />
     <ClCompile Include="source\Slider.cpp" />
     <ClCompile Include="source\SoundManager.cpp" />

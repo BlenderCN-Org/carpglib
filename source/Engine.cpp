@@ -1,13 +1,14 @@
 ﻿#include "EnginePch.h"
 #include "EngineCore.h"
 #include "Engine.h"
-#include "ResourceManager.h"
-#include "SoundManager.h"
-#include "Physics.h"
-#include "Render.h"
+#include "App.h"
 #include "Gui.h"
 #include "Input.h"
-#include "App.h"
+#include "Physics.h"
+#include "Render.h"
+#include "ResourceManager.h"
+#include "SceneManager.h"
+#include "SoundManager.h"
 #include "WindowsIncludes.h"
 
 //-----------------------------------------------------------------------------
@@ -27,6 +28,7 @@ active(false), activation_point(-1, -1), phy_world(nullptr), title("Window"), fo
 	app::engine = this;
 	app::render = new Render;
 	app::res_mgr = new ResourceManager;
+	app::scene_mgr = new SceneManager;
 	app::sound_mgr = new SoundManager;
 }
 
@@ -145,6 +147,7 @@ void Engine::Cleanup()
 
 	app::app->OnCleanup();
 
+	delete app::scene_mgr;
 	delete app::input;
 	delete app::res_mgr;
 	delete app::render;
@@ -241,7 +244,13 @@ void Engine::DoTick(bool update_game)
 	}
 	app::input->UpdateMouseWheel(0);
 
-	app::render->Draw();
+	if(app::render->CanDraw())
+	{
+		app::scene_mgr->Draw();
+		app::gui->Draw();
+		app::render->Present();
+	}
+
 	app::input->Update();
 	app::sound_mgr->Update(dt);
 }
