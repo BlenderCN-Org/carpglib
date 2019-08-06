@@ -30,10 +30,14 @@ public:
 	void OnReset() override;
 	void OnReload() override;
 	void OnRelease() override;
+	void Prepare();
 	uint GetShaderId(bool animated, bool have_binormals, bool fog, bool specular, bool normal, bool point_light, bool dir_light) const;
 	ID3DXEffect* GetShader(uint id);
 	ID3DXEffect* CompileShader(uint id);
 	ID3DXEffect* GetEffect() const { return shaders.front().e; }
+	void SetLightDir(const Vec3& dir, Color color);
+	void SetPointLight();
+	void SetLightDisabled();
 
 	void SetAmbientColor(Color color);
 	void SetFog(Color color, const Vec2& range);

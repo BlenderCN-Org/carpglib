@@ -8,7 +8,7 @@
 
 SceneManager* app::scene_mgr;
 
-SceneManager::SceneManager() : shader(nullptr), camera(nullptr), active_scene(nullptr), use_fog(true)
+SceneManager::SceneManager() : shader(nullptr), camera(nullptr), active_scene(nullptr), use_fog(true), use_lighting(true)
 {
 }
 
@@ -49,6 +49,13 @@ void SceneManager::Draw()
 		shader->SetFogDisabled();
 	else
 		shader->SetFog(scene->fog_color, scene->fog_range);
+	if(use_lighting)
+	{
+		if(scene->use_light_dir)
+			shader->SetLightDir(scene->light_dir, scene->light_color);
+	}
+	else
+		shader->SetLightDisabled();
 
 	V(device->EndScene());
 }

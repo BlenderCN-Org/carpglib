@@ -10,7 +10,7 @@ public:
 	Scene* GetActiveScene() { return active_scene; }
 	Camera* GetCamera() { return camera; }
 
-	bool use_fog;
+	bool use_fog, use_lighting;
 
 private:
 	SuperShader* shader;
